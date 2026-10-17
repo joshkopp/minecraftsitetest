@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2b1d12">
+<title>Josh Koppanalil – Austin TX.</title>
+<meta name="description" content="I'm Joshua (Josh) Koppanalil, a sophomore at Westlake High School in Austin, TX, exploring computer science, cybersecurity, machine learning, and the ideas that connect them.">
+<link rel="canonical" href="https://joshkoppanalil.com/">
+<meta property="og:title" content="Josh Koppanalil – Student &amp; Builder">
+<meta property="og:description" content="Sophomore at Westlake High School in Austin, TX, exploring computer science, cybersecurity and machine learning.">
+<meta property="og:url" content="https://joshkoppanalil.com/">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"Person","name":"Joshua Koppanalil","alternateName":"Josh Koppanalil","url":"https://joshkoppanalil.com/","email":"josh.koppanalil@gmail.com","sameAs":["https://github.com/joshkopp"]},
+{"@context":"https://schema.org","@type":"WebSite","name":"Josh Koppanalil","url":"https://joshkoppanalil.com/"}]
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script data-goatcounter="https://joshkopp.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dirt:#8b5a2b; --dirt-d:#6b4423; --grass:#5da130; --grass-l:#7cbd45;
+  --stone:#7d7d7d; --stone-d:#555; --panel:#c6c6c6; --ink:#3f3f3f;
+  --night:#1c130b; --gold:#ffd84a; --cream:#f3ecd9;
+  --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  margin:0;color:var(--cream);font:24px/1.3 "VT323",monospace;
+  background:#18301f;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:"Press Start 2P",monospace;font-weight:400;line-height:1.5;margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+/* Minecraft bevelled panel */
+.panel{
+  background:var(--panel);color:var(--ink);
+  border:4px solid;border-color:#fff #555 #555 #fff;
+  box-shadow:0 0 0 4px #000;
+}
+.dark{background:#000a;color:#fff;border:4px solid #000;box-shadow:inset 0 0 0 4px #fff3}
+
+/* Header = Minecraft hotbar */
+header{position:sticky;top:0;z-index:20;background:#0f2318f0;border-bottom:4px solid #000}
+nav{height:56px;display:flex;align-items:center;gap:16px}
+.brand{font-family:"Press Start 2P",monospace;font-size:14px;color:var(--grass-l)}
+.navlinks{display:flex;gap:8px;margin-left:auto}
+.navlinks a,.btn{
+  display:inline-block;padding:6px 14px;background:var(--stone);color:#fff;
+  border:3px solid;border-color:#bbb #333 #333 #bbb;box-shadow:0 0 0 3px #000;
+  text-shadow:2px 2px #3f3f3f;cursor:pointer;
+}
+.navlinks a:hover,.btn:hover{background:#6e7fbf;border-color:#c8d0ff #2a3366 #2a3366 #c8d0ff}
+.btn.primary{background:var(--grass)}
+.btn.primary:hover{background:var(--grass-l);border-color:#d6f5b0 #2d5a10 #2d5a10 #d6f5b0}
+.menu{display:none;margin-left:auto;font:inherit;padding:2px 12px}
+.views{display:flex;align-items:center;gap:8px;color:#7cff4a;text-shadow:2px 2px #1b3d0a}
+.views[hidden]{display:none}
+.views b{display:inline-block;width:14px;height:14px;background:#7cff4a;box-shadow:inset -3px -3px #3aa314,inset 3px 3px #c8ffa8}
+
+/* ===== Hero: Minecraft title screen ===== */
+.bg{position:fixed;inset:0;z-index:-1;background:#18301f}
+.bg::after{content:"";position:absolute;inset:0;background:#10231ebd;backdrop-filter:blur(5px)}
+.bg i,.world i{position:absolute;inset:0;background-size:cover;background-position:50% 60%}
+.px{background-image:url(hero-pixel.png);image-rendering:pixelated}
+.hd{background-image:url(hero-world.jpg)}
+.hero{position:relative;height:calc(100svh - 60px);min-height:620px;overflow:hidden;background:#18301f;border-bottom:4px solid #000}
+.world{position:absolute;inset:-5% -2%;will-change:transform}
+.world::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0a1a2a66,#0000 60%),linear-gradient(#0000 70%,#0a1a2a99)}
+.hero .heroin{position:relative;z-index:2;width:100%;height:100%;margin:0;padding:7vh clamp(16px,4vw,64px) 0;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;will-change:transform,opacity}
+.logowrap{position:relative}
+.logo{font-size:clamp(26px,4.6vw,76px);line-height:1.3;color:#e8e8e8;-webkit-text-stroke:.12em #2b2b2b;paint-order:stroke fill;
+  text-shadow:0 .08em #9a9a9a,0 .16em #5a5a5a,0 .24em #2b2b2b,.1em .35em .3em #0008}
+.logo span{display:block}
+.splash{position:absolute;left:68%;top:-.9em;white-space:nowrap;rotate:-10deg;color:var(--gold);font-size:clamp(20px,2.4vw,34px);text-shadow:3px 3px #3d3300;animation:pulse 1s ease-in-out infinite alternate}
+@keyframes pulse{to{scale:1.1}}
+.titlemenu{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(340px,26vw);min-width:280px;margin-top:6vh}
+.titlemenu .btn{font-size:28px;text-align:center;padding:8px 10px}
+.titlemenu .wide{grid-column:1/3}
+.cue{position:absolute;z-index:2;left:clamp(16px,4vw,64px);bottom:20px;color:#fff;font-size:26px;text-shadow:3px 3px #000;animation:bob 1.6s steps(4) infinite}
+@keyframes bob{50%{translate:0 8px}}
+.fly{position:absolute;z-index:1;width:6px;height:6px;background:#fff7a8;box-shadow:0 0 10px 3px #ffe97a88;opacity:0;animation:float var(--d) ease-in-out infinite}
+@keyframes float{0%,100%{opacity:0;transform:translate(0,0)}30%,70%{opacity:1}50%{transform:translate(var(--x),-70px)}}
+
+/* scroll: chunky "chunk loading" reveals + XP bar */
+.js .rv{opacity:0;translate:0 56px;transition:opacity .7s steps(7),translate .7s steps(7)}
+.js .rv.in{opacity:1;translate:0 0}
+.xpbar{position:fixed;z-index:30;left:50%;bottom:12px;translate:-50% 0;width:min(340px,64vw);height:12px;background:#000c;border:3px solid #2a2a2a}
+.xpbar i{display:block;height:100%;width:0;background:#7cff4a;box-shadow:inset 0 3px #c8ffa8}
+.xpbar span{position:absolute;left:50%;bottom:10px;translate:-50% 0;color:#7cff4a;font-size:24px;text-shadow:2px 0 #000,-2px 0 #000,0 2px #000,0 -2px #000}
+
+/* ===== Sections ===== */
+.section{padding:72px 0;border-top:4px solid #000}
+.sectionhead{margin-bottom:28px}
+.sectionhead h2{font-size:clamp(20px,4vw,32px);color:var(--grass-l);text-shadow:4px 4px #000}
+.sectionhead p{margin:10px 0 0;color:#cdbf9d}
+.aboutgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+.about{padding:24px}.about p{margin:0 0 14px}.about p:last-child{margin:0}
+.quest{align-self:start;padding:20px;background:#212121;border:4px solid #000;box-shadow:inset 0 0 0 4px #fff4;color:#fff}
+.quest strong{display:flex;align-items:center;gap:12px;font:14px/1.6 "Press Start 2P",monospace;color:var(--gold)}
+.quest p{margin:12px 0 0}
+.xp{height:14px;margin-top:14px;background:#000;border:3px solid #2a2a2a}
+.xp i{display:block;height:100%;width:62%;background:#7cff4a;box-shadow:inset 0 3px #c8ffa8}
+.dot{width:16px;height:16px;flex:none;background:var(--gold);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+
+.cards{display:grid;gap:22px}
+.card{display:block;padding:22px;transition:transform .1s}
+.card:hover{transform:translate(-3px,-3px);background:#d6d6d6}
+.cardtop{display:flex;justify-content:space-between;color:#2d7a10}
+.card h3{font-size:16px;margin:14px 0 10px;color:#1c1c1c}
+.card p{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{padding:0 10px;background:var(--stone-d);color:#fff;font-size:20px;border:2px solid #000}
+
+.contactbox{padding:28px;display:flex;flex-direction:column;gap:12px;background:#000b;border:4px solid #000;box-shadow:inset 0 0 0 4px #fff3}
+.contactbox .eyebrow{font-size:24px}
+.copy{all:unset;display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;cursor:pointer;font-size:clamp(24px,5vw,34px);color:#fff}
+.copy::before{content:"<Josh>";color:var(--gold)}
+.copy:hover .label{color:var(--grass-l)}
+.copy:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.hint{font-size:20px;color:#aaa}.copy.done .hint{color:#7cff4a}
+
+footer{display:flex;justify-content:space-between;gap:12px;padding:22px 0 40px;color:#a89570;font-size:20px}
+.textlink{color:var(--grass-l)}
+
+@media(max-width:700px){
+  body{font-size:22px}
+  .logo{font-size:11vw}
+  .splash{position:static;rotate:-4deg;margin-top:10px;font-size:22px}
+  .titlemenu{display:none}
+  .cue{bottom:14px}
+  .navlinks{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;padding:14px;background:#1c130b;border-bottom:4px solid #000}
+  .navlinks.open{display:flex}.menu{display:block}
+  .views{margin-left:0;font-size:20px}
+  .aboutgrid{grid-template-columns:1fr}
+  footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1!important;translate:none!important}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+<div class="bg" aria-hidden="true"><i class="px"></i><i class="hd"></i></div>
+<div class="xpbar" aria-hidden="true"><i id="xpfill"></i><span id="lvl">0</span></div>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home">JK</a>
+      <div class="views" id="viewsbox" aria-label="Views" hidden><b aria-hidden="true"></b><span id="views"></span></div>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+      <button class="btn menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="world" role="img" aria-label="Josh sitting in a peaceful Minecraft world at sunset"><i class="px"></i><i class="hd"></i></div>
+    <div class="wrap heroin">
+      <div class="logowrap">
+        <h1 class="logo"><span>Hi, I'm</span><span>Josh.</span></h1>
+        <div class="splash" aria-hidden="true">Student · Builder · Learner!</div>
+      </div>
+      <div class="titlemenu">
+        <a class="btn" href="#about">About Me</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn wide" href="#contact">Contact</a>
+      </div>
+    </div>
+    <a class="cue" href="#about">Enter world ↓</a>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sectionhead rv"><h2>Always exploring.</h2></div>
+      <div class="aboutgrid">
+        <div class="panel about rv">
+          <p>I like building things that matter. I'm Joshua (Josh) Koppanalil, a sophomore at Westlake High School in Austin, TX, exploring computer science, cybersecurity, machine learning, and the ideas that connect them.</p>
+          <p>My interests sit at the intersection of software, security, and engineering. I like learning how systems work under the hood, building projects from scratch, and collaborating with people who enjoy solving hard problems.</p>
+          <p>Outside of tech, I enjoy jet-skiing, mountain biking, playing soccer, playing piano, and getting some sleep.</p>
+        </div>
+        <aside class="quest rv">
+          <strong><span class="dot" aria-hidden="true"></span>Current quest</strong>
+          <p id="now-text">Machine Learning Fundamentals</p>
+          <div class="xp" aria-hidden="true"><i></i></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="sectionhead rv">
+        <h2>Projects.</h2>
+        <p>Some ideas I've built and published. Try them out.</p>
+      </div>
+      <div class="cards">
+        <a class="card panel rv" href="https://joshkopp.github.io/passwordchecker/" target="_blank" rel="noopener">
+          <div class="cardtop"><span>Cybersecurity</span><span>↗</span></div>
+          <h3>Password Strength Checker</h3>
+          <p>A password analyzer that scores strength using entropy, common-password detection, pattern analysis, and estimated crack time. Everything runs locally in the browser, so nothing you type is ever uploaded.</p>
+          <div class="tags"><span>JavaScript</span><span>Entropy</span><span>Client-side</span></div>
+        </a>
+        <a class="card panel rv" href="https://joshkopp.github.io/mlachecker/" target="_blank" rel="noopener">
+          <div class="cardtop"><span>Education</span><span>↗</span></div>
+          <h3>MLA Format Checker</h3>
+          <p>Checks an essay against MLA format, from margins, fonts, and spacing to citations, quotations, and the Works Cited page. Paste your text or upload a .docx and every problem is highlighted in your essay, along with a checklist of what you got right. Everything runs locally in the browser.</p>
+          <div class="tags"><span>Python</span><span>Pyodide</span><span>Client-side</span></div>
+        </a>
+        <a class="card panel rv" href="https://joshkopp.github.io/FlashcardGen/" target="_blank" rel="noopener">
+          <div class="cardtop"><span>Education</span><span>↗</span></div>
+          <h3>Flashcard Generator</h3>
+          <p>Turns notes, a PDF, or a Word document into flashcards. Each term is scored by how much it matters, so the important ones need more correct answers before they count as learned. Free to use, with an optional AI mode that runs on your own device.</p>
+          <div class="tags"><span>JavaScript</span><span>Cloudflare</span><span>Client-side</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contactbox rv">
+        <div class="eyebrow">Chat with me</div>
+        <button class="copy" data-copy="josh.koppanalil@gmail.com"><span class="label">josh.koppanalil@gmail.com</span><span class="hint">Click to copy</span></button>
+        <button class="copy" data-copy="(737) 420-8829"><span class="label">(737) 420-8829</span><span class="hint">Click to copy</span></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Josh Koppanalil</span>
+  <a class="textlink" href="#home">Back to spawn ↑</a>
+</footer>
+
+<script>
+const menu=document.getElementById('menu'),links=document.getElementById('navlinks');
+const setMenu=o=>{links.classList.toggle('open',o);menu.setAttribute('aria-expanded',String(o))};
+menu.addEventListener('click',()=>setMenu(!links.classList.contains('open')));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+document.getElementById('year').textContent=new Date().getFullYear();
+
+const OFFSET=359;
+fetch('https://joshkopp.goatcounter.com/counter/TOTAL.json').then(r=>r.json()).then(d=>{
+  const n=parseInt(String(d.count).replace(/\D/g,''),10)||0;
+  document.getElementById('views').textContent=(n+OFFSET).toLocaleString();
+  document.getElementById('viewsbox').hidden=false;
+}).catch(()=>{});
+
+document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',async()=>{
+  const text=btn.dataset.copy,hint=btn.querySelector('.hint');
+  try{await navigator.clipboard.writeText(text)}catch(e){
+    const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();
+  }
+  hint.textContent='Copied!';btn.classList.add('done');
+  setTimeout(()=>{hint.textContent='Click to copy';btn.classList.remove('done')},1600);
+}));
+
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hero=document.querySelector('.hero'),world=hero.querySelector('.world'),inner=hero.querySelector('.heroin');
+const fill=document.getElementById('xpfill'),lvl=document.getElementById('lvl');
+let tick=false;
+function onScroll(){
+  const y=scrollY,p=Math.min(y/hero.offsetHeight,1);
+  if(!RM){
+    world.style.transform=`translate3d(0,${y*.25}px,0) scale(${1+p*.15})`;
+    inner.style.transform=`translate3d(0,${-y*.2}px,0)`;
+    inner.style.opacity=Math.max(0,1-p*1.4);
+  }
+  const max=document.documentElement.scrollHeight-innerHeight,s=max>0?y/max:0;
+  fill.style.width=(s*100)+'%';lvl.textContent=Math.round(s*30);
+  tick=false;
+}
+addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+onScroll();
+
+document.querySelectorAll('.cards .card').forEach((c,i)=>c.style.transitionDelay=(i*.15)+'s');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+if(!RM)for(let i=0;i<12;i++){
+  const f=document.createElement('span');f.className='fly';
+  f.style.cssText=`left:${Math.random()*100}%;top:${30+Math.random()*60}%;--x:${(Math.random()*80-40)|0}px;--d:${6+Math.random()*6}s;animation-delay:${-Math.random()*8}s`;
+  hero.appendChild(f);
+}
+</script>
+</body>
+</html>
