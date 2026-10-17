@@ -72,7 +72,7 @@ nav{height:56px;display:flex;align-items:center;gap:16px}
 .bg i,.world i{position:absolute;inset:0;background-size:cover;background-position:50% 60%}
 .px{background-image:url(hero-pixel.png);image-rendering:pixelated}
 .hd{background-image:url(hero-world.jpg)}
-.hero{position:relative;height:calc(100svh - 60px);min-height:620px;overflow:hidden;background:#18301f;border-bottom:4px solid #000}
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#18301f;border-bottom:4px solid #000}
 .world{position:absolute;inset:-5% -2%;will-change:transform}
 .world::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0a1a2a66,#0000 60%),linear-gradient(#0000 70%,#0a1a2a99)}
 .hero .heroin{position:relative;z-index:2;width:100%;height:100%;margin:0;padding:7vh clamp(16px,4vw,64px) 0;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;will-change:transform,opacity}
@@ -80,11 +80,12 @@ nav{height:56px;display:flex;align-items:center;gap:16px}
 .logo{font-size:clamp(26px,4.6vw,76px);line-height:1.3;color:#e8e8e8;-webkit-text-stroke:.12em #2b2b2b;paint-order:stroke fill;
   text-shadow:0 .08em #9a9a9a,0 .16em #5a5a5a,0 .24em #2b2b2b,.1em .35em .3em #0008}
 .logo span{display:block}
-.splash{position:absolute;left:68%;top:-.9em;white-space:nowrap;rotate:-10deg;color:var(--gold);font-size:clamp(20px,2.4vw,34px);text-shadow:3px 3px #3d3300;animation:pulse 1s ease-in-out infinite alternate}
+.splash{display:inline-block;margin-top:.5em;transform-origin:0 50%;rotate:-3deg;white-space:nowrap;color:var(--gold);font-size:clamp(22px,2.3vw,32px);text-shadow:3px 3px #3d3300;animation:pulse 1s ease-in-out infinite alternate}
 @keyframes pulse{to{scale:1.1}}
-.titlemenu{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(340px,26vw);min-width:280px;margin-top:6vh}
+.titlemenu{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(340px,26vw);min-width:280px;margin-top:20px}
 .titlemenu .btn{font-size:28px;text-align:center;padding:8px 10px}
 .titlemenu .wide{grid-column:1/3}
+.tagline{margin:22px 0 0;max-width:min(440px,30vw);min-width:280px;padding:12px 18px;border-left:8px solid var(--gold);font-size:clamp(26px,2.4vw,36px);line-height:1.1;color:#fff;text-shadow:2px 2px #000}
 .cue{position:absolute;z-index:2;left:clamp(16px,4vw,64px);bottom:20px;color:#fff;font-size:26px;text-shadow:3px 3px #000;animation:bob 1.6s steps(4) infinite}
 @keyframes bob{50%{translate:0 8px}}
 .fly{position:absolute;z-index:1;width:6px;height:6px;background:#fff7a8;box-shadow:0 0 10px 3px #ffe97a88;opacity:0;animation:float var(--d) ease-in-out infinite}
@@ -135,9 +136,14 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:22px 0 40px;c
 @media(max-width:700px){
   body{font-size:22px}
   .logo{font-size:11vw}
-  .splash{position:static;rotate:-4deg;margin-top:10px;font-size:22px}
-  .titlemenu{display:none}
-  .cue{bottom:14px}
+  .splash{font-size:21px}
+  .tagline{max-width:100%;min-width:0;font-size:26px;margin-top:14px;padding:8px 14px}
+  .titlemenu{position:absolute;left:12px;right:12px;bottom:14px;width:auto;min-width:0;margin:0;grid-template-columns:repeat(3,1fr);gap:8px;z-index:3}
+  .titlemenu .wide{grid-column:auto}
+  .titlemenu .btn{font-size:21px;padding:6px 2px}
+  .cue{display:none}
+  .xpbar{bottom:auto;top:10px}
+  .xpbar span{bottom:auto;top:14px}
   .navlinks{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;padding:14px;background:#1c130b;border-bottom:4px solid #000}
   .navlinks.open{display:flex}.menu{display:block}
   .views{margin-left:0;font-size:20px}
@@ -152,19 +158,6 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:22px 0 40px;c
 <div class="bg" aria-hidden="true"><i class="px"></i><i class="hd"></i></div>
 <div class="xpbar" aria-hidden="true"><i id="xpfill"></i><span id="lvl">0</span></div>
 
-<header>
-  <div class="wrap">
-    <nav aria-label="Main navigation">
-      <a class="brand" href="#home">JK</a>
-      <div class="views" id="viewsbox" aria-label="Views" hidden><b aria-hidden="true"></b><span id="views"></span></div>
-      <div class="navlinks" id="navlinks">
-        <a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
-      </div>
-      <button class="btn menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
-    </nav>
-  </div>
-</header>
-
 <main>
   <section class="hero" id="home">
     <div class="world" role="img" aria-label="Josh sitting in a peaceful Minecraft world at sunset"><i class="px"></i><i class="hd"></i></div>
@@ -173,6 +166,7 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:22px 0 40px;c
         <h1 class="logo"><span>Hi, I'm</span><span>Josh.</span></h1>
         <div class="splash" aria-hidden="true">Student · Builder · Learner!</div>
       </div>
+      <p class="tagline dark">I like building things that matter.</p>
       <div class="titlemenu">
         <a class="btn" href="#about">About Me</a>
         <a class="btn" href="#projects">Projects</a>
@@ -242,14 +236,11 @@ footer{display:flex;justify-content:space-between;gap:12px;padding:22px 0 40px;c
 
 <footer class="wrap">
   <span>© <span id="year"></span> Josh Koppanalil</span>
+  <div class="views" id="viewsbox" aria-label="Views" hidden><b aria-hidden="true"></b><span id="views"></span></div>
   <a class="textlink" href="#home">Back to spawn ↑</a>
 </footer>
 
 <script>
-const menu=document.getElementById('menu'),links=document.getElementById('navlinks');
-const setMenu=o=>{links.classList.toggle('open',o);menu.setAttribute('aria-expanded',String(o))};
-menu.addEventListener('click',()=>setMenu(!links.classList.contains('open')));
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 
 document.getElementById('year').textContent=new Date().getFullYear();
 
